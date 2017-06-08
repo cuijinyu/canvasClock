@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvastest</title>
+	<style>
+	</style>
+</head>
+<body>
+	<canvas id="drawing" width="400px" height="300px">抱歉，您的电脑不支持canvas</canvas>
+	<script type="text/javascript">
+		var drawing=document.getElementById("drawing");
+		if (drawing.getContext) //如果浏览器支持<canvas>元素
+		{
+			var context=drawing.getContext("2d");
+			//context.strokeStyle="red";//描边颜色
+			//context.fillStyle="#0000ff";//填充颜色
+			/*context.fillRect(10,10,50,50);//绘制蓝色矩形
+			context.strokeRect(10,10,50,50);
+			context.fillStyle="#ff0000";
+			context.fillRect(30,30,50,50);//绘制红色矩形
+			context.strokeRect(30,30,50,50);
+			在两个矩形重叠的地方清除一个小矩形
+			context.clearRect(40,40,10,10);*/
+			//开始路径
+			context.beginPath();
+			//绘制外圆
+			context.arc(100,100,99,0,2*Math.PI,false);
+			//绘制内圆
+			context.moveTo(194,100);
+			context.arc(100,100,94,0,2*Math.PI,false);
+			//绘制分针
+			context.moveTo(100,100);
+			context.lineTo(100,15);
+			//绘制时针
+			context.moveTo(100,100);
+			context.lineTo(35,100);
+
+			context.stroke();//描述路径
+			
+			context.font="bold 14px Arial";
+			context.textAlign="center";
+			context.textBaseLine="middle";
+			context.fillText("12",100,20);
+
+		}
+	</script>
+</body>
+</html>
